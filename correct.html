@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>correct baby naks!</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e6f2ff;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            height: 100%;
+        }
+
+        .gif-container {
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .correct-gif {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            display: block;
+        }
+
+        .message-card {
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.15);
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .message-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #e63946;
+            margin-bottom: 10px;
+        }
+
+        .message-text {
+            font-size: 1.1rem;
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .back-button {
+            background: linear-gradient(to right, #ff6b6b, #e63946);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .message-card {
+                padding: 25px;
+            }
+
+            .message-title {
+                font-size: 2rem;
+            }
+
+            .message-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="gif-container">
+        <img src="https://media.tenor.com/3Hwr9Qkx1C0AAAAi/dare-bunny-aggie-bunny.gif" class="correct-gif" alt="Correct password">
+    </div>
+
+    <div class="message-card">
+        <p class="message-title"></p>
+        <p class="message-text">
+            yeheyy tama ka baby! next may gift ako sayo, click mo yung arrow dali!</p>
+        <div class="button-container">
+            <button class="back-button" onclick="goToGift()">→</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.location.href = 'valentines.html';
+    }
+
+    function goToGift() {
+        window.location.href = 'gift.html';
+    }
+</script>
+
+</body>
+</html>

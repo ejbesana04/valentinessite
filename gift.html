@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Gift 🎁</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e6f2ff;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .greeting-with-gif {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .gift-header {
+            flex: 1;
+            text-align: left;
+        }
+
+        .gift-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            color: #e63946;
+            margin-bottom: 10px;
+        }
+
+        .gift-greeting {
+            font-size: 1.3rem;
+            color: #ff6b6b;
+            line-height: 1.6;
+        }
+
+        .gif-section {
+            flex-shrink: 0;
+            width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            max-width: 180px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .image-section {
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.15);
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder-text {
+            font-size: 1.4rem;
+            color: #ff6b6b;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .back-button {
+            background: linear-gradient(to right, #ff6b6b, #e63946);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .back-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(230, 57, 70, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .greeting-with-gif {
+                flex-direction: row;
+                text-align: left;
+                gap: 16px;
+            }
+            
+            .gift-header {
+                text-align: left;
+            }
+            
+            .gif-section {
+                width: auto;
+                flex-shrink: 0;
+            }
+            
+            .placeholder-image {
+                max-width: 120px;
+            }
+            
+            .gift-title {
+                font-size: 1.3rem;
+            }
+
+            .gift-greeting {
+                font-size: 0.85rem;
+            }
+
+            .image-section {
+                padding: 25px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gift-title {
+                font-size: 1.3rem;
+            }
+            
+            .gift-greeting {
+                font-size: 0.8rem;
+            }
+            
+            .placeholder-text {
+                font-size: 1.2rem;
+            }
+            
+            .placeholder-image {
+                max-width: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- Combined greeting text with GIF on right - no container box -->
+    <div class="greeting-with-gif">
+        <div class="gift-header">
+            <p class="gift-title">Happy Valentine's Day Baby!</p>
+            <p class="gift-greeting">
+                i loveee youuu soo muchhh mwaa mwaa!!<br>
+                flowers for you poo!
+            </p>
+        </div>
+        
+        <div class="gif-section">
+            <img src="https://media.tenor.com/auw5wMC9GfsAAAAi/dare-aggie-dare-aggie-bunny.gif" class="placeholder-image" alt="Gift">
+        </div>
+    </div>
+
+    <div class="image-section">
+        <p class="placeholder-text">✨ A special moment for you ✨</p>
+    </div>
+
+    <div class="button-container">
+        <button class="back-button" onclick="goBack()">←</button>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.location.href = 'valentines.html';
+    }
+</script>
+
+</body>
+</html>

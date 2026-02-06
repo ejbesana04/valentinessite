@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Guess Our Password ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(173,216,230,0.15), transparent 15%),
+                radial-gradient(900px 400px at 90% 90%, rgba(135,206,235,0.10), transparent 12%),
+                linear-gradient(180deg, #e6f2ff 0%, #d4e6f1 100%);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px;
+    -webkit-font-smoothing:antialiased;
+}
+
+.container {
+    max-width: 1000px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.left-section, .right-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hug-container, .greeting-card, .password-card {
+    background: rgba(255,255,255,0.85);
+    border-radius: 18px;
+    padding: 26px;
+    width: 100%;
+    box-shadow: 0 8px 30px rgba(255,105,180,0.12);
+    border: 1px solid rgba(255,255,255,0.6);
+    backdrop-filter: blur(6px);
+    text-align: center;
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.hug-container {
+    margin-bottom: 30px;
+}
+
+.hug-gif {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 15px;
+}
+
+.greeting-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: #e63946;
+}
+
+.iloveyou {
+    font-size: 2.2rem;
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+.password-instruction {
+    color: #ff6b6b;
+    background: #fff5f5;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.password-hint {
+    font-style: italic;
+    color: #ff6b6b;
+    margin-bottom: 25px;
+}
+
+.password-input-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.password-input {
+    width: 70px;
+    height: 80px;
+    border-radius: 14px;
+    border: 2px solid rgba(255,86,139,0.18);
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #ff2b8c;
+    background: linear-gradient(180deg, #fffefe, #fff3fb);
+    box-shadow: inset 0 -6px 12px rgba(255,182,193,0.06);
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.password-input:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(255,105,180,0.12);
+    outline: none;
+}
+
+.password-input.filled {
+    background: #fff0f7;
+}
+
+.submit-button {
+    background: linear-gradient(to right, #ff6b6b, #e63946);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+}
+
+/* ❤️ HEART KEYPAD */
+.keypad-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;                 /* was 18px */
+    margin-top: 22px;
+    max-width: 230px;          /* was 260px */
+    margin-inline: auto;
+}
+
+/* ❤️ Smaller heart buttons */
+.keypad-button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    transition: transform 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.keypad-button::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff6b6b, #e63946);
+    /* heart-like polygon for consistent support */
+    clip-path: polygon(
+        50% 95%,
+        5% 60%,
+        5% 36%,
+        18% 12%,
+        38% 3%,
+        50% 16%,
+        62% 3%,
+        82% 12%,
+        95% 36%,
+        95% 60%
+    );
+    box-shadow: 0 6px 18px rgba(230, 57, 70, 0.18);
+}
+
+
+.keypad-button span {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+
+.keypad-button:hover {
+    transform: scale(1.15);
+}
+
+.keypad-button:active {
+    transform: scale(0.9);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left-section">
+    <div class="hug-container">
+        <img src="https://media.tenor.com/e8GR3HZ108gAAAAj/dare-bunny-aggie-bunny.gif" class="hug-gif">
+    </div>
+    <div class="greeting-card">
+        <p class="greeting-text">hiii my baby cin cin ko!! i love youuu</p>
+        <p class="iloveyou"></p>
+    </div>
+</div>
+
+<div class="right-section">
+<div class="password-card">
+            <h2 class="password-title"></h2>
+            <p class="password-subtitle"></p>
+
+            <p class="password-instruction">enter a 4-digit code baby for a gift.</p>
+<p class="password-hint">Hint: It's the day na nanghingi ka ng ig sakin</p>
+
+<div class="password-input-container">
+    <input class="password-input" id="d1">
+    <input class="password-input" id="d2">
+    <input class="password-input" id="d3">
+    <input class="password-input" id="d4">
+</div>
+
+<button class="submit-button" onclick="checkPassword()">Enter</button>
+
+<div class="keypad-container">
+    <button class="keypad-button" onclick="inputDigit('1')"><span>1</span></button>
+    <button class="keypad-button" onclick="inputDigit('2')"><span>2</span></button>
+    <button class="keypad-button" onclick="inputDigit('3')"><span>3</span></button>
+    <button class="keypad-button" onclick="inputDigit('4')"><span>4</span></button>
+    <button class="keypad-button" onclick="inputDigit('5')"><span>5</span></button>
+    <button class="keypad-button" onclick="inputDigit('6')"><span>6</span></button>
+    <button class="keypad-button" onclick="inputDigit('7')"><span>7</span></button>
+    <button class="keypad-button" onclick="inputDigit('8')"><span>8</span></button>
+    <button class="keypad-button" onclick="inputDigit('9')"><span>9</span></button>
+    <button class="keypad-button" onclick="inputDigit('0')"><span>0</span></button>
+    <button class="keypad-button" onclick="deleteDigit()"><span>⌫</span></button>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<script>
+const correctPassword = "0102";
+const inputs = document.querySelectorAll('.password-input');
+
+function inputDigit(d) {
+    const empty = [...inputs].find(i => !i.value);
+    if (empty) {
+        empty.value = d;
+        empty.classList.add('filled');
+    }
+}
+
+function deleteDigit() {
+    const last = [...inputs].reverse().find(i => i.value);
+    if (last) {
+        last.value = '';
+        last.classList.remove('filled');
+    }
+}
+
+function checkPassword() {
+    const entered = [...inputs].map(i => i.value).join('');
+    if (entered === correctPassword) {
+        window.location.href = 'correct.html';
+    } else {
+        window.location.href = 'incorrect.html';
+    }
+}
+</script>
+
+</body>
+</html>
