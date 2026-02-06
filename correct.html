@@ -110,16 +110,58 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .gif-container,
             .message-card {
-                padding: 25px;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .correct-gif {
+                max-width: 280px;
+                margin: 0 auto;
             }
 
             .message-title {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
 
             .message-text {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 8px;
+            }
+
+            .correct-gif {
+                max-width: 220px;
+            }
+
+            .message-title {
+                font-size: 1.6rem;
+            }
+
+            .message-text {
+                font-size: 1rem;
+            }
+
+            .back-button {
+                width: 56px;
+                height: 56px;
+                font-size: 1.6rem;
             }
         }
     </style>
