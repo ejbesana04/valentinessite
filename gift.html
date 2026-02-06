@@ -153,6 +153,7 @@
 
             .image-section {
                 padding: 25px 20px;
+                min-height: 40vh;
             }
         }
         
@@ -171,6 +172,31 @@
             
             .placeholder-image {
                 max-width: 120px;
+            }
+
+            /* Move overall layout to top and expand image area */
+            body {
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 18px;
+            }
+
+            .container {
+                min-height: 100vh;
+                padding-top: 8px;
+                justify-content: flex-start;
+                gap: 12px;
+            }
+
+            .greeting-with-gif {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .image-section {
+                padding: 30px 18px;
+                min-height: 60vh;
             }
         }
     </style>

@@ -110,16 +110,84 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .gif-container,
             .message-card {
-                padding: 25px;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .wrong-gif {
+                max-width: 280px;
+                margin: 0 auto;
             }
 
             .message-title {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
 
             .message-text {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                overflow: auto;
+            }
+
+            .container {
+                padding: 8px;
+                min-height: 100vh;
+                justify-content: space-around;
+                gap: 12px;
+            }
+
+            .gif-container {
+                padding: 8px;
+                max-height: 52vh;
+            }
+
+            .wrong-gif {
+                max-width: 92%;
+                max-height: 48vh;
+                width: auto;
+                height: auto;
+            }
+
+            .message-card {
+                padding: 18px;
+                width: 100%;
+            }
+
+            .message-title {
+                font-size: 1.9rem;
+            }
+
+            .message-text {
+                font-size: 1.12rem;
+            }
+
+            .button-container {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .back-button {
+                width: 72px;
+                height: 72px;
+                font-size: 1.9rem;
             }
         }
     </style>
