@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i love youuu baby</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(1200px 600px at 10% 10%, rgba(173,216,230,0.15), transparent 15%),
+                        radial-gradient(900px 400px at 90% 90%, rgba(135,206,235,0.10), transparent 12%),
+                        linear-gradient(180deg, #e6f2ff 0%, #d4e6f1 100%);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+            opacity: 0;
+            animation: fadeInBody 0.8s ease-out forwards;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes fadeInBody {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating hearts container */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Individual floating heart */
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff0000;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Floating animation */
+        @keyframes floatHeart {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0.5) rotate(0deg);
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(1) rotate(360deg);
+            }
+        }
+
+        /* Floating path variations */
+        @keyframes floatHeartLeft {
+            0% {
+                opacity: 0;
+                transform: translate(100px, 100vh) scale(0.5) rotate(0deg);
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-100px, -100px) scale(1) rotate(360deg);
+            }
+        }
+
+        @keyframes floatHeartRight {
+            0% {
+                opacity: 0;
+                transform: translate(-100px, 100vh) scale(0.5) rotate(0deg);
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(100px, -100px) scale(1) rotate(360deg);
+            }
+        }
+
+        /* Main container */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            animation: slideInContainer 0.6s ease-out 0.3s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes slideInContainer {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Love GIF - Same style as correct.html GIF */
+        .love-gif {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 15px;
+            transition: transform 0.5s ease;
+            animation: floatGif 6s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes floatGif {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .love-gif:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* Message content */
+        .message-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            animation: fadeInContent 0.8s ease-out 0.7s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .love-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #e63946;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        /* Back button - Same style as gift button in correct.html */
+        .back-button {
+            background: linear-gradient(to right, #ff6b6b, #e63946);
+            color: white;
+            border: none;
+            width: 50px; /* Reduced from 70px */
+            height: 50px; /* Reduced from 70px */
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3); /* Reduced shadow */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem; /* Reduced from 2.2rem */
+            position: relative;
+            overflow: hidden;
+            animation: buttonPulse 2s infinite;
+            z-index: 2;
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 10px 20px rgba(230, 57, 70, 0.5);
+            }
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .back-button:hover {
+            transform: scale(1.2) rotate(15deg);
+            box-shadow: 0 12px 25px rgba(230, 57, 70, 0.6); /* Reduced shadow */
+            background: linear-gradient(to right, #e63946, #ff6b6b);
+            animation: none;
+        }
+
+        .back-button:hover::before {
+            left: 100%;
+        }
+
+        .back-button:active {
+            transform: scale(0.9) rotate(-5deg);
+            transition: transform 0.1s;
+        }
+
+        /* Page transition */
+        .page-transition {
+            opacity: 0 !important;
+            transform: scale(0.8) rotate(-10deg) !important;
+            transition: all 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) !important;
+        }
+
+        /* Mobile view adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                gap: 20px;
+            }
+            
+            .love-gif {
+                max-width: 250px;
+            }
+            
+            .floating-heart {
+                font-size: 16px;
+            }
+            
+            .love-text {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .back-button {
+                width: 45px; /* Reduced from 65px */
+                height: 45px; /* Reduced from 65px */
+                font-size: 1.4rem; /* Reduced from 2rem */
+            }
+        }
+
+        /* Small phone adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .love-gif {
+                max-width: 210px;
+            }
+            
+            .floating-heart {
+                font-size: 14px;
+            }
+            
+            .love-text {
+                font-size: 1.1rem;
+            }
+            
+            .back-button {
+                width: 40px; /* Reduced from 60px */
+                height: 40px; /* Reduced from 60px */
+                font-size: 1.2rem; /* Reduced from 1.8rem */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating hearts container -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <div class="container" id="love-container">
+        <!-- Love GIF -->
+        <img src="https://media.tenor.com/auw5wMC9GfsAAAAi/dare-aggie-dare-aggie-bunny.gif" class="love-gif" alt="Love GIF">
+        
+        <!-- Love Message -->
+        <div class="message-content">
+            <p class="love-text">I LOVEEE YOUUUU SOO MUCHHH BABY KOO MWAA MWAA!!</p>
+            <button class="back-button" id="back-button" onclick="goBackToGiftWithEffect()">←</button>
+        </div>
+    </div>
+
+<script>
+    function goBackToGiftWithEffect() {
+        // Add button press animation
+        const button = document.getElementById('back-button');
+        button.style.transform = 'scale(0.8) rotate(-20deg)';
+        button.style.background = 'linear-gradient(to right, #e63946, #ff6b6b)';
+        
+        // Add page transition effect
+        setTimeout(() => {
+            document.getElementById('love-container').classList.add('page-transition');
+            
+            // Navigate after animation
+            setTimeout(() => {
+                window.location.href = 'valentines.html';
+            }, 500);
+        }, 300);
+    }
+
+    // Function to create floating hearts
+    function createFloatingHearts() {
+        const heartsContainer = document.getElementById('floating-hearts');
+        const heartCount = 20; // Number of hearts
+        
+        for (let i = 0; i < heartCount; i++) {
+            setTimeout(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '❤️';
+                
+                // Random size between 15px and 35px
+                const size = 15 + Math.random() * 20;
+                heart.style.fontSize = `${size}px`;
+                
+                // Random starting position
+                const startX = Math.random() * 100;
+                heart.style.left = `${startX}%`;
+                
+                // Random color variation (different shades of red)
+                const redValue = Math.floor(180 + Math.random() * 75);
+                heart.style.color = `rgb(${redValue}, 0, 0)`;
+                
+                // Random animation
+                const animationTypes = ['floatHeart', 'floatHeartLeft', 'floatHeartRight'];
+                const animationType = animationTypes[Math.floor(Math.random() * animationTypes.length)];
+                
+                // Random duration between 8 and 15 seconds
+                const duration = 8 + Math.random() * 7;
+                
+                // Apply animation
+                heart.style.animation = `${animationType} ${duration}s linear infinite`;
+                
+                // Random delay
+                const delay = Math.random() * 5;
+                heart.style.animationDelay = `${delay}s`;
+                
+                heartsContainer.appendChild(heart);
+                
+                // Remove heart after animation completes and create new one
+                setTimeout(() => {
+                    heart.remove();
+                    createNewHeart();
+                }, (duration + delay) * 1000);
+                
+            }, i * 300); // Stagger heart creation
+        }
+    }
+    
+    // Function to create a single new heart
+    function createNewHeart() {
+        const heartsContainer = document.getElementById('floating-hearts');
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+        heart.innerHTML = '❤️';
+        
+        // Random size between 15px and 35px
+        const size = 15 + Math.random() * 20;
+        heart.style.fontSize = `${size}px`;
+        
+        // Random starting position
+        const startX = Math.random() * 100;
+        heart.style.left = `${startX}%`;
+        
+        // Random color variation
+        const redValue = Math.floor(180 + Math.random() * 75);
+        heart.style.color = `rgb(${redValue}, 0, 0)`;
+        
+        // Random animation
+        const animationTypes = ['floatHeart', 'floatHeartLeft', 'floatHeartRight'];
+        const animationType = animationTypes[Math.floor(Math.random() * animationTypes.length)];
+        
+        // Random duration between 8 and 15 seconds
+        const duration = 8 + Math.random() * 7;
+        
+        // Apply animation
+        heart.style.animation = `${animationType} ${duration}s linear infinite`;
+        
+        heartsContainer.appendChild(heart);
+        
+        // Remove and create new heart when animation would complete
+        setTimeout(() => {
+            heart.remove();
+            createNewHeart();
+        }, duration * 1000);
+    }
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+        // Add heartbeat effect to the container
+        setInterval(() => {
+            const container = document.getElementById('love-container');
+            container.style.transform = 'scale(1.01)';
+            setTimeout(() => {
+                container.style.transform = 'scale(1)';
+            }, 300);
+        }, 4000);
+        
+        // Start floating hearts animation
+        createFloatingHearts();
+    });
+</script>
+
+</body>
+</html>

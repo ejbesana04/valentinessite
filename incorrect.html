@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -17,42 +17,45 @@
         }
 
         body {
-            background-color: #e6f2ff;
+            background: radial-gradient(1200px 600px at 10% 10%, rgba(173,216,230,0.15), transparent 15%),
+                        radial-gradient(900px 400px at 90% 90%, rgba(135,206,235,0.10), transparent 12%),
+                        linear-gradient(180deg, #e6f2ff 0%, #d4e6f1 100%);
             font-family: 'Poppins', sans-serif;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            padding: 15px;
-            overflow: hidden;
+            align-items: center;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
             opacity: 0;
-            animation: pageEntrance 0.8s ease-out forwards;
+            animation: fadeInBody 0.8s ease-out forwards;
+            overflow-x: hidden;
         }
 
-        @keyframes pageEntrance {
+        @keyframes fadeInBody {
             from {
                 opacity: 0;
-                transform: scale(0.9);
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: translateY(0);
             }
         }
 
+        /* Main container */
         .container {
             width: 100%;
             max-width: 600px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
-            height: 100%;
-            opacity: 0;
-            animation: containerEntrance 0.6s ease-out 0.3s forwards;
+            gap: 30px;
+            animation: slideInContainer 0.6s ease-out 0.3s both;
         }
 
-        @keyframes containerEntrance {
+        @keyframes slideInContainer {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -63,153 +66,72 @@
             }
         }
 
-        .gif-container {
+        /* GIF */
+        .wrong-gif {
             width: 100%;
-            background-color: white;
-            border-radius: 20px;
-            padding: 15px;
-            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            animation: bounceIn 0.8s ease-out 0.5s both;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 320px;
+            border-radius: 15px;
+            transition: transform 0.5s ease;
+            animation: floatGif 6s ease-in-out infinite;
         }
 
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
+        @keyframes floatGif {
+            0%, 100% {
+                transform: translateY(0);
             }
             50% {
-                opacity: 1;
-                transform: scale(1.05);
+                transform: translateY(-10px);
             }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .gif-container:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
-        }
-
-        .wrong-gif {
-            max-width: 600px;
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            display: block;
-            transition: transform 0.5s ease;
         }
 
         .wrong-gif:hover {
             transform: scale(1.05) rotate(2deg);
         }
 
-        .message-card {
-            width: 100%;
-            background-color: white;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.15);
-            text-align: center;
-            flex-shrink: 0;
-            animation: slideUp 0.8s ease-out 0.7s both;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .message-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
-        }
-
-        .message-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-            color: #e63946;
-            margin-bottom: 10px;
-            animation: textPulse 2s infinite alternate;
-        }
-
-        @keyframes textPulse {
-            from {
-                text-shadow: 0 0 5px rgba(230, 57, 70, 0.3);
-            }
-            to {
-                text-shadow: 0 0 15px rgba(230, 57, 70, 0.6);
-            }
-        }
-
-        .message-text {
-            font-size: 1.1rem;
-            color: #ff6b6b;
-            margin-bottom: 15px;
-            line-height: 1.4;
-            animation: fadeInText 1s ease-out 0.9s both;
-        }
-
-        @keyframes fadeInText {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .button-container {
+        /* Message content */
+        .message-content {
             display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInButton 1s ease-out 1.1s both;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            animation: fadeInContent 0.8s ease-out 0.7s both;
         }
 
-        @keyframes fadeInButton {
+        @keyframes fadeInContent {
             from {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: translateY(0);
             }
+        }
+
+        .wrong-text {
+            font-family: 'Montserrat', cursive;
+            font-size: 1.3rem;
+            color: #e63946;
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
 
         .back-button {
             background: linear-gradient(to right, #ff6b6b, #e63946);
             color: white;
             border: none;
-            width: 60px;
-            height: 60px;
+            width: 50px; /* Reduced from 70px */
+            height: 50px; /* Reduced from 70px */
             border-radius: 50%;
             cursor: pointer;
             font-weight: 600;
-            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+            box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3); /* Reduced shadow */
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.6rem; /* Reduced from 2.2rem */
             position: relative;
             overflow: hidden;
             animation: buttonPulse 2s infinite;
@@ -218,11 +140,11 @@
         @keyframes buttonPulse {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+                box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3);
             }
             50% {
                 transform: scale(1.05);
-                box-shadow: 0 12px 25px rgba(230, 57, 70, 0.5);
+                box-shadow: 0 10px 20px rgba(230, 57, 70, 0.5);
             }
         }
 
@@ -239,7 +161,7 @@
 
         .back-button:hover {
             transform: scale(1.2) rotate(15deg);
-            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.6);
+            box-shadow: 0 12px 25px rgba(230, 57, 70, 0.6); /* Reduced shadow */
             background: linear-gradient(to right, #e63946, #ff6b6b);
             animation: none;
         }
@@ -255,9 +177,9 @@
 
         /* Page transition */
         .page-transition {
-            opacity: 0;
-            transform: scale(0.8) rotate(-10deg);
-            transition: all 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+            opacity: 0 !important;
+            transform: scale(0.8) rotate(-10deg) !important;
+            transition: all 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) !important;
         }
 
         /* Sad animation for wrong answer */
@@ -277,89 +199,50 @@
             }
         }
 
+        /* Mobile view adjustments */
         @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
             .container {
-                align-items: center;
-                justify-content: center;
-                padding: 10px;
+                gap: 20px;
             }
-
-            .gif-container,
-            .message-card {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                padding: 20px;
-            }
-
+            
             .wrong-gif {
-                max-width: 280px;
-                margin: 0 auto;
+                max-width: 250px;
             }
-
-            .message-title {
-                font-size: 1.9rem;
+            
+            .wrong-text {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
             }
-
-            .message-text {
-                font-size: 1.05rem;
+            
+            .back-button {
+                width: 45px; /* Reduced from 65px */
+                height: 45px; /* Reduced from 65px */
+                font-size: 1.4rem; /* Reduced from 2rem */
             }
         }
 
+        /* Small phone adjustments */
         @media (max-width: 480px) {
             body {
-                overflow: auto;
+                padding: 10px;
             }
-
-            .container {
-                padding: 6px;
-                min-height: 100vh;
-                justify-content: flex-start;
-                gap: 8px;
-            }
-
-            .gif-container {
-                padding: 6px;
-                max-height: 60vh;
-                width: 100%;
-            }
-
+            
             .wrong-gif {
-                max-width: 96%;
-                max-height: 54vh;
-                width: auto;
-                height: auto;
-                margin: 0 auto;
+                max-width: 210px;
             }
-
-            .message-card {
-                padding: 14px;
-                width: 100%;
-                max-height: 36vh;
-                overflow: auto;
+            
+            .wrong-text {
+                font-size: 1.1rem;
             }
-
-            .message-title {
-                font-size: 1.9rem;
-            }
-
-            .message-text {
-                font-size: 1.12rem;
-            }
-
-            .button-container {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-            }
-
+            
             .back-button {
-                width: 72px;
-                height: 72px;
-                font-size: 1.9rem;
+                width: 40px; /* Reduced from 60px */
+                height: 40px; /* Reduced from 60px */
+                font-size: 1.2rem; /* Reduced from 1.8rem */
             }
         }
     </style>
@@ -368,16 +251,13 @@
 <body>
 
 <div class="container" id="main-container">
-    <div class="gif-container">
-        <img src="https://media1.tenor.com/m/nNYywi9vmTsAAAAC/dare-aggie-dare-aggie-bunny.gif" class="wrong-gif" alt="Wrong password">
-    </div>
+    <!-- GIF -->
+    <img src="https://media.tenor.com/XYxANWuttLEAAAAi/no-nope.gif" class="wrong-gif" alt="Wrong password">
 
-    <div class="message-card">
-        <p class="message-title"></p>
-        <p class="message-text">weeh mali baby no, alalahanin mo please!</p>
-        <div class="button-container">
-            <button class="back-button" id="back-button" onclick="goBackWithEffect()">←</button>
-        </div>
+    <!-- Message content -->
+    <div class="message-content">
+        <p class="wrong-text">weeh mali baby no, alalahanin mo please!</p>
+        <button class="back-button" id="back-button" onclick="goBackWithEffect()">←</button>
     </div>
 </div>
 
