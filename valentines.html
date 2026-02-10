@@ -114,24 +114,15 @@ body {
     transform: scale(1.05);
 }
 
-/* Greeting text without white box */
+/* Greeting text without white box - REMOVED GLOWING ANIMATION */
 .greeting-text {
     font-family: 'Dancing Script', cursive;
     font-size: 3.5rem;
     color: #e63946;
-    animation: textGlow 2s infinite alternate;
     line-height: 1.2;
     margin-bottom: 10px;
     text-shadow: 0 2px 10px rgba(230, 57, 70, 0.2);
-}
-
-@keyframes textGlow {
-    from {
-        text-shadow: 0 0 5px rgba(230, 57, 70, 0.3);
-    }
-    to {
-        text-shadow: 0 0 15px rgba(230, 57, 70, 0.6), 0 0 20px rgba(230, 57, 70, 0.4);
-    }
+    /* Removed the textGlow animation */
 }
 
 /* Password section without white box */
@@ -385,7 +376,7 @@ body {
     }
 }
 
-/* Mobile view adjustments */
+/* Mobile view adjustments - INCREASED FONT SIZES */
 @media (max-width: 768px) {
     body {
         overflow: auto;
@@ -424,12 +415,12 @@ body {
     }
     
     .hug-gif {
-        max-width: 220px;
-        margin-bottom: 20px;
+        max-width: 240px; /* Increased from 220px */
+        margin-bottom: 25px; /* Increased from 20px */
     }
     
     .greeting-text {
-        font-size: 2.5rem;
+        font-size: 2.8rem; /* Increased from 2.5rem */
         line-height: 1.1;
         margin-bottom: 5px;
     }
@@ -441,118 +432,119 @@ body {
     }
     
     .password-instruction {
-        font-size: 1.1rem;
-        margin-bottom: 12px;
+        font-size: 1.2rem; /* Increased from 1.1rem */
+        margin-bottom: 15px; /* Increased from 12px */
     }
     
     .password-hint {
-        font-size: 0.9rem;
-        padding: 10px 15px;
-        margin-bottom: 20px;
+        font-size: 1rem; /* Increased from 0.9rem */
+        padding: 12px 16px; /* Increased padding */
+        margin-bottom: 25px; /* Increased from 20px */
         line-height: 1.4;
     }
     
     .password-input-container {
-        gap: 10px;
-        margin-bottom: 20px;
+        gap: 12px; /* Increased from 10px */
+        margin-bottom: 25px; /* Increased from 20px */
     }
     
     .password-input {
-        width: 55px;
-        height: 65px;
-        font-size: 1.8rem;
+        width: 60px; /* Increased from 55px */
+        height: 70px; /* Increased from 65px */
+        font-size: 2rem; /* Increased from 1.8rem */
         border-radius: 12px;
     }
     
     .submit-button {
-        padding: 12px 30px;
-        font-size: 1rem;
-        margin-bottom: 25px;
+        padding: 14px 32px; /* Increased from 12px 30px */
+        font-size: 1.05rem; /* Increased from 1rem */
+        margin-bottom: 30px; /* Increased from 25px */
         width: 80%;
-        max-width: 200px;
+        max-width: 220px; /* Increased from 200px */
     }
     
     .keypad-container {
-        max-width: 200px;
-        gap: 10px;
+        max-width: 220px; /* Increased from 200px */
+        gap: 12px; /* Increased from 10px */
     }
     
     .keypad-button {
-        width: 45px;
-        height: 45px;
+        width: 50px; /* Increased from 45px */
+        height: 50px; /* Increased from 45px */
     }
     
     .keypad-button::before {
-        width: 45px;
-        height: 45px;
+        width: 50px; /* Increased from 45px */
+        height: 50px; /* Increased from 45px */
     }
     
     .keypad-button span {
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* Increased from 1.1rem */
     }
 }
 
-/* Small phone adjustments */
+/* Small phone adjustments - INCREASED FONT SIZES */
 @media (max-width: 480px) {
     .left-side, .right-side {
-        padding: 25px 15px;
+        padding: 30px 15px; /* Increased from 25px 15px */
     }
     
     .hug-gif {
-        max-width: 180px;
-        margin-bottom: 15px;
+        max-width: 200px; /* Increased from 180px */
+        margin-bottom: 20px; /* Increased from 15px */
     }
     
     .greeting-text {
-        font-size: 2rem;
+        font-size: 2.3rem; /* Increased from 2rem */
     }
     
     .password-input {
-        width: 50px;
-        height: 60px;
-        font-size: 1.6rem;
+        width: 55px; /* Increased from 50px */
+        height: 65px; /* Increased from 60px */
+        font-size: 1.8rem; /* Increased from 1.6rem */
     }
     
     .password-input-container {
-        gap: 8px;
+        gap: 10px; /* Increased from 8px */
     }
     
     .password-instruction {
-        font-size: 1rem;
+        font-size: 1.1rem; /* Increased from 1rem */
     }
     
     .password-hint {
-        font-size: 0.85rem;
-        padding: 8px 12px;
+        font-size: 0.95rem; /* Increased from 0.85rem */
+        padding: 10px 14px; /* Increased from 8px 12px */
     }
     
     .keypad-container {
-        max-width: 180px;
-        gap: 8px;
+        max-width: 200px; /* Increased from 180px */
+        gap: 10px; /* Increased from 8px */
     }
     
     .keypad-button {
-        width: 40px;
-        height: 40px;
+        width: 45px; /* Increased from 40px */
+        height: 45px; /* Increased from 40px */
     }
     
     .keypad-button::before {
-        width: 40px;
-        height: 40px;
+        width: 45px; /* Increased from 40px */
+        height: 45px; /* Increased from 40px */
     }
     
     .keypad-button span {
-        font-size: 1rem;
+        font-size: 1.1rem; /* Increased from 1rem */
     }
     
     .submit-button {
-        padding: 10px 25px;
-        font-size: 0.95rem;
+        padding: 12px 28px; /* Increased from 10px 25px */
+        font-size: 1rem; /* Increased from 0.95rem */
         width: 85%;
+        max-width: 220px; /* Added max-width */
     }
 }
 
-/* Landscape mode for mobile */
+/* Landscape mode for mobile - ADJUSTED SIZES */
 @media (max-width: 768px) and (orientation: landscape) {
     .split-screen {
         flex-direction: row;
@@ -562,27 +554,31 @@ body {
         width: 50%;
         min-height: 100vh;
         height: 100vh;
-        padding: 20px;
+        padding: 25px; /* Increased from 20px */
     }
     
     .hug-gif {
-        max-width: 150px;
-        margin-bottom: 15px;
+        max-width: 170px; /* Increased from 150px */
+        margin-bottom: 20px; /* Increased from 15px */
     }
     
     .greeting-text {
-        font-size: 1.8rem;
+        font-size: 2rem; /* Increased from 1.8rem */
     }
     
     .password-input {
-        width: 45px;
-        height: 55px;
-        font-size: 1.5rem;
+        width: 50px; /* Increased from 45px */
+        height: 60px; /* Increased from 55px */
+        font-size: 1.7rem; /* Increased from 1.5rem */
     }
     
     .password-hint {
-        font-size: 0.8rem;
-        padding: 8px 10px;
+        font-size: 0.9rem; /* Increased from 0.8rem */
+        padding: 10px 12px; /* Increased from 8px 10px */
+    }
+    
+    .password-instruction {
+        font-size: 1.1rem; /* Added for landscape */
     }
 }
 </style>
@@ -600,8 +596,8 @@ body {
     <!-- Right side - White with Password Input (NO WHITE BOX) -->
     <div class="right-side">
         <div class="password-content">
-            <p class="password-instruction">enter the 4-digit code baby!</p>
-            <p class="password-hint">Hint: 12:40 am yung hint baby with "ig mo?" na message</p>
+            <p class="password-instruction">Enter the 4-digit code for a gift baby!</p>
+            <p class="password-hint">Hint: 12:40 am ng gabi tas napachat ka ng "ig mo?"</p>
 
             <div class="password-input-container">
                 <input class="password-input" id="d1">
@@ -687,7 +683,7 @@ function checkPasswordWithEffect() {
             }, 500);
         } else {
             // Wrong password animation
-            container.style.animation = 'shake 0.5s';
+            container.style.animation = '';
             inputs.forEach(input => {
                 input.style.borderColor = '#ff0000';
                 input.style.boxShadow = '0 0 15px rgba(255,0,0,0.3)';

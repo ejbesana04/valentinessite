@@ -122,7 +122,7 @@
         /* Main container */
         .container {
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -143,7 +143,7 @@
             }
         }
 
-        /* Love GIF - Same style as correct.html GIF */
+        /* Love GIF */
         .love-gif {
             width: 100%;
             max-width: 320px;
@@ -199,26 +199,188 @@
             margin-bottom: 20px;
         }
 
-        /* Back button - Same style as gift button in correct.html */
+        /* Notebook Section */
+        .notebook-section {
+            width: 100%;
+            max-width: 550px;
+            margin: 20px 0;
+            animation: fadeInNotebook 1s ease-out 1s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeInNotebook {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .notebook {
+            background-color: #fffef7;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
+                        0 1px 8px rgba(0, 0, 0, 0.1),
+                        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #f0e6d3;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .notebook:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 
+                        0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Lined paper effect */
+        .notebook::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            background-image: repeating-linear-gradient(
+                to bottom,
+                transparent,
+                transparent 24px,
+                rgba(230, 57, 70, 0.1) 24px,
+                rgba(230, 57, 70, 0.1) 25px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .notebook-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #e63946;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-textarea {
+            width: 100%;
+            min-height: 180px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            line-height: 25px;
+            color: #333;
+            background: transparent;
+            border: none;
+            resize: none;
+            outline: none;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+            overflow-y: auto;
+            overflow-x: hidden;
+            text-align: justify; /* Justified text */
+            text-justify: inter-word; /* Better word spacing for justification */
+            hyphens: auto; /* Automatic hyphenation for better line breaks */
+            word-spacing: -0.05em; /* Slightly reduce word spacing for better fit */
+        }
+
+        .notebook-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(230, 57, 70, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: #e63946;
+            opacity: 1;
+            animation: fadeInSignature 1s ease-out 2s both;
+            text-align: right;
+            width: 100%;
+        }
+
+        @keyframes fadeInSignature {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .heart-pen {
+            font-size: 1.5rem;
+            color: #e63946;
+            animation: penPulse 2s infinite;
+        }
+
+        @keyframes penPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Love letter decoration */
+        .love-letter-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            animation: floatEmojis 3s ease-in-out infinite;
+        }
+
+        @keyframes floatEmojis {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .love-letter-decoration span {
+            font-size: 1.2rem;
+        }
+
+        /* Back button */
         .back-button {
             background: linear-gradient(to right, #ff6b6b, #e63946);
             color: white;
             border: none;
-            width: 50px; /* Reduced from 70px */
-            height: 50px; /* Reduced from 70px */
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             cursor: pointer;
             font-weight: 600;
-            box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3); /* Reduced shadow */
+            box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem; /* Reduced from 2.2rem */
+            font-size: 1.6rem;
             position: relative;
             overflow: hidden;
             animation: buttonPulse 2s infinite;
             z-index: 2;
+            margin-top: 20px;
         }
 
         @keyframes buttonPulse {
@@ -245,7 +407,7 @@
 
         .back-button:hover {
             transform: scale(1.2) rotate(15deg);
-            box-shadow: 0 12px 25px rgba(230, 57, 70, 0.6); /* Reduced shadow */
+            box-shadow: 0 12px 25px rgba(230, 57, 70, 0.6);
             background: linear-gradient(to right, #e63946, #ff6b6b);
             animation: none;
         }
@@ -270,10 +432,13 @@
         @media (max-width: 768px) {
             body {
                 padding: 15px;
+                justify-content: flex-start; /* Allow content to flow naturally */
             }
             
             .container {
                 gap: 20px;
+                max-width: 95%;
+                justify-content: flex-start;
             }
             
             .love-gif {
@@ -289,10 +454,58 @@
                 margin-bottom: 15px;
             }
             
+            .notebook-section {
+                max-width: 100%;
+                margin: 15px 0;
+            }
+            
+            .notebook {
+                padding: 20px;
+                max-height: none; /* Remove any height restrictions */
+                overflow: visible; /* Ensure content is visible */
+            }
+            
+            .notebook-title {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+            
+            .message-textarea {
+                font-size: 0.95rem; /* Reduced font size for mobile */
+                line-height: 22px; /* Reduced line height */
+                min-height: auto; /* Let content determine height */
+                height: auto; /* Auto height */
+                overflow-y: visible; /* No scrolling */
+                max-height: none; /* Remove max height */
+                text-align: justify;
+                text-justify: inter-word;
+                hyphens: auto;
+                word-spacing: -0.05em;
+            }
+            
+            .signature {
+                font-size: 1.5rem;
+                margin-top: 10px;
+            }
+            
+            .heart-pen {
+                display: none; /* Hide on mobile to save space */
+            }
+            
+            .love-letter-decoration {
+                margin-top: 10px;
+                gap: 8px;
+            }
+            
+            .love-letter-decoration span {
+                font-size: 1rem;
+            }
+            
             .back-button {
-                width: 45px; /* Reduced from 65px */
-                height: 45px; /* Reduced from 65px */
-                font-size: 1.4rem; /* Reduced from 2rem */
+                width: 45px;
+                height: 45px;
+                font-size: 1.4rem;
+                margin-top: 15px;
             }
         }
 
@@ -300,6 +513,7 @@
         @media (max-width: 480px) {
             body {
                 padding: 10px;
+                justify-content: flex-start;
             }
             
             .love-gif {
@@ -314,10 +528,32 @@
                 font-size: 1.1rem;
             }
             
+            .notebook {
+                padding: 15px;
+            }
+            
+            .notebook-title {
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+            
+            .message-textarea {
+                font-size: 0.9rem; /* Further reduced font size */
+                line-height: 20px; /* Further reduced line height */
+                min-height: auto;
+                height: auto;
+                overflow-y: visible;
+            }
+            
+            .signature {
+                font-size: 1.3rem;
+            }
+            
             .back-button {
-                width: 40px; /* Reduced from 60px */
-                height: 40px; /* Reduced from 60px */
-                font-size: 1.2rem; /* Reduced from 1.8rem */
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                margin-top: 10px;
             }
         }
     </style>
@@ -334,6 +570,36 @@
         <!-- Love Message -->
         <div class="message-content">
             <p class="love-text">I LOVEEE YOUUUU SOO MUCHHH BABY KOO MWAA MWAA!!</p>
+            
+            <!-- Notebook Section -->
+            <div class="notebook-section">
+                <div class="notebook">
+                    <h2 class="notebook-title">My Valentine's Message</h2>
+                    <div class="message-textarea" id="valentine-message">
+Happyy Valentines dayyy babyy!! Gusto ko lang malaman mo na sobrang special ka sakin babyy and sobrangg grateful ko talaga at nakilala kita. bawat moment na kasama at kausap kita baby ay sobrang meaningful talaga para sakin. thank youuu alwayss baby sa love, effort, at support mo palagi, at sa pagpili sakin at satin always kahit gusto itigil pag nag aaway hee HAHAHAHAHAHA di ko na to pahahabain siguro baby di talaga nakaprepare pero sana magustuhan mo hehe. 
+
+may flowers naman ako na dinrawing sayo baby, bawing bawi nako siguro dun? sana magustuhan mo pero soon totoong flowers na baby haa sorry drawing lang muna ngayon hehe. 
+
+basta baby sobrang thankful ako sayo alwayss, tandaan mo din na andito lang ako palagi nasa tabi mo baby di kita papabayaan and hindi ako aalis sa tabi mo. 
+
+yon lang siguro baby more valentines pa together satin ha and stay strong pa satin baby koo, more celebrations pa sana yung maceleb natin na magkasama baby, yon lang baby soo happy valentines day ulitt baby koo!! 
+
+dabestt ka talaga alwayss kaya i loveee youuu ng sobraa sobraaa talaga babyy, mwaaa mwaaa ka sakin babyy prettyyy😚😚🫶🏻🫶🏻
+                    </div>
+                    <div class="notebook-footer">
+                        <div class="heart-pen"></div>
+                        <div class="signature">Love, baby jing</div>
+                    </div>
+                    <div class="love-letter-decoration">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            
             <button class="back-button" id="back-button" onclick="goBackToGiftWithEffect()">←</button>
         </div>
     </div>
@@ -359,7 +625,7 @@
     // Function to create floating hearts
     function createFloatingHearts() {
         const heartsContainer = document.getElementById('floating-hearts');
-        const heartCount = 20; // Number of hearts
+        const heartCount = 20;
         
         for (let i = 0; i < heartCount; i++) {
             setTimeout(() => {
@@ -401,7 +667,7 @@
                     createNewHeart();
                 }, (duration + delay) * 1000);
                 
-            }, i * 300); // Stagger heart creation
+            }, i * 300);
         }
     }
     
@@ -456,6 +722,36 @@
         
         // Start floating hearts animation
         createFloatingHearts();
+        
+        // Auto-adjust the textarea height to fit content
+        const messageDiv = document.getElementById('valentine-message');
+        
+        // Only apply auto-scroll on desktop (screen width > 768px)
+        if (window.innerWidth > 768) {
+            messageDiv.style.height = 'auto';
+            messageDiv.style.height = (messageDiv.scrollHeight) + 'px';
+            
+            // Add scroll animation for the message
+            let scrollPos = 0;
+            const scrollMessage = () => {
+                if (messageDiv.scrollHeight > messageDiv.clientHeight) {
+                    scrollPos += 0.5;
+                    if (scrollPos >= messageDiv.scrollHeight - messageDiv.clientHeight) {
+                        scrollPos = 0;
+                    }
+                    messageDiv.scrollTop = scrollPos;
+                }
+            };
+            
+            // Start auto-scroll if content is long
+            if (messageDiv.scrollHeight > messageDiv.clientHeight) {
+                setInterval(scrollMessage, 50);
+            }
+        } else {
+            // On mobile, make sure content is fully visible with no scroll
+            messageDiv.style.height = 'auto';
+            messageDiv.style.overflowY = 'visible';
+        }
     });
 </script>
 
